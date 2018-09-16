@@ -6,13 +6,13 @@
       v-model.trim="filterKey"
       @keyup.native="filterCaseList"
       maxlength="20">
-      <el-button slot="append" 
+      <el-button slot="append"
         @click="filterCaseList"
         icon="el-icon-search"></el-button>
     </el-input>
     <div :class="$style['case-list']">
       <div v-if="!filteredCaseList.length">没有查询到结果</div>
-      <div :class="$style['case-item']" 
+      <div :class="$style['case-item']"
         v-for="item in filteredCaseList"
         :key="item.id">
         <img :class="$style['case-item-img']" :src="item.img"/>
@@ -25,7 +25,7 @@
         <section :class="$style.back">
           <span :class="$style.desc">{{item.desc}}</span>
           <router-link :to="'/case/'+item.id"
-            tag="span" 
+            tag="span"
             :class="$style.link">
             查看详情
           </router-link>
@@ -36,42 +36,42 @@
 </template>
 
 <script>
-  import caseList from './case_list.data.js'
+import caseList from './case_list.data.js';
 
-  export default {
-    props: {
-      isPreviewMode: {type:Boolean, default:false},
-      maxItems: {type:Number, default:3},
-      exceptItemId: {type:Number},
-    },
-    created(){
-      this.filterCaseList();
-      if(this.isPreviewMode){
-        this.filteredCaseList = this.filteredCaseList.filter(item=>item.id!=this.exceptItemId);
-        this.filteredCaseList.slice(0, Math.min(this.maxItems, this.filteredCaseList.length));
+export default {
+  props: {
+    isPreviewMode: { type: Boolean, default: false },
+    maxItems: { type: Number, default: 3 },
+    exceptItemId: { type: Number },
+  },
+  created() {
+    this.filterCaseList();
+    if (this.isPreviewMode) {
+      this.filteredCaseList = this.filteredCaseList.filter(item => item.id !== this.exceptItemId);
+      this.filteredCaseList.slice(0, Math.min(this.maxItems, this.filteredCaseList.length));
+    }
+  },
+  data() {
+    return {
+      filterKey: '',
+      filteredCaseList: [],
+      originalCaseList: caseList
+    };
+  },
+  methods: {
+    filterCaseList() {
+      const thiz = this;
+      if (!thiz.filterKey) {
+        thiz.filteredCaseList = Array.from(thiz.originalCaseList);
+        return;
       }
-    },
-    data(){
-      return {
-        filterKey: '',
-        filteredCaseList: [],
-        originalCaseList: caseList
-      };
-    },
-    methods: {
-      filterCaseList(){
-        let thiz = this;
-        if(!thiz.filterKey){
-          thiz.filteredCaseList = Array.from(thiz.originalCaseList);
-          return;
-        }
-        let res = thiz.originalCaseList.filter(item=>{
-          return !!~item.label.toLowerCase().indexOf(thiz.filterKey.toLowerCase());
-        });
-        thiz.filteredCaseList = res||[];
-      }
+      const res = thiz.originalCaseList.filter(
+        item => !!~item.label.toLowerCase().indexOf(thiz.filterKey.toLowerCase())
+      );
+      thiz.filteredCaseList = res || [];
     }
   }
+};
 </script>
 
 <style lang="scss" module>

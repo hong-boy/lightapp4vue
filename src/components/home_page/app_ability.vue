@@ -6,7 +6,7 @@
     <section :class="$style.modules">
       <div :class="$style.module">
         <header :class="$style['m-header']">
-          <img :class="$style['m-icon']" 
+          <img :class="$style['m-icon']"
             src="@assets/images/icon-stream.png"/>
           <span :class="$style['sub-caption']">流计算</span>
         </header>
@@ -18,7 +18,7 @@
       </div>
       <div :class="$style.module">
         <header :class="$style['m-header']">
-          <img :class="$style['m-icon']" 
+          <img :class="$style['m-icon']"
             src="@assets/images/icon-stream.png"/>
           <span :class="$style['sub-caption']">流计算</span>
         </header>
@@ -30,7 +30,7 @@
       </div>
       <div :class="$style.module">
         <header :class="$style['m-header']">
-          <img :class="$style['m-icon']" 
+          <img :class="$style['m-icon']"
             src="@assets/images/icon-stream.png"/>
           <span :class="$style['sub-caption']">流计算</span>
         </header>
@@ -42,7 +42,7 @@
       </div>
       <div :class="$style.module">
         <header :class="$style['m-header']">
-          <img :class="$style['m-icon']" 
+          <img :class="$style['m-icon']"
             src="@assets/images/icon-stream.png"/>
           <span :class="$style['sub-caption']">流计算</span>
         </header>
@@ -54,7 +54,7 @@
       </div>
       <div :class="$style.module">
         <header :class="$style['m-header']">
-          <img :class="$style['m-icon']" 
+          <img :class="$style['m-icon']"
             src="@assets/images/icon-stream.png"/>
           <span :class="$style['sub-caption']">流计算</span>
         </header>
@@ -69,9 +69,9 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {
+
+};
 </script>
 
 <style lang="scss" module>

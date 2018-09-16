@@ -17,22 +17,22 @@
 
 <script>
 export default {
-    props: {
-        defaultActiveItem: {type:String}
-    },
-    data(){
-        return {
-        };
-    },
-    watch: {
-        $route(...args){
-            console.log('$route', args);
-        }
-    },
-    methods: {
+  props: {
+    defaultActiveItem: { type: String }
+  },
+  data() {
+    return {
+    };
+  },
+  watch: {
+    $route(...args) {
+      console.log('$route', args);
+    }
+  },
+  methods: {
 
-    },
-}
+  },
+};
 </script>
 
 <style lang="scss" module>
@@ -67,4 +67,3 @@ export default {
         }
     }
 </style>
-

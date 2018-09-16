@@ -1,17 +1,17 @@
 <template>
     <el-footer :class="$style['footer-bar']"
         height="auto">
-        <section v-if="isShowContactUS" 
+        <section v-if="isShowContactUS"
           :class="$style['contact-us']">
           <header :class="$style.caption">联系我们</header>
           <a href="mailto:baas@cmiot.chinamobile.com"
             :class="$style.link">
             baas@cmiot.chinamobile.com
           </a>
-          <a href="//j.map.baidu.com/3ef2P" 
+          <a href="//j.map.baidu.com/3ef2P"
             :class="$style.link"
-            title="重庆市渝北区黄杨路渝兴广场D3大楼" 
-            target="_blank" 
+            title="重庆市渝北区黄杨路渝兴广场D3大楼"
+            target="_blank"
             nofllow="">
                 重庆市渝北区黄杨路渝兴广场D3大楼
             </a>
@@ -22,10 +22,10 @@
 
 <script>
 export default {
-    props: {
-      isShowContactUS: {type:Boolean, default:false}
-    },
-}
+  props: {
+    isShowContactUS: { type: Boolean, default: false }
+  },
+};
 </script>
 
 <style lang="scss" module>
@@ -72,4 +72,3 @@ export default {
       }
     }
 </style>
-

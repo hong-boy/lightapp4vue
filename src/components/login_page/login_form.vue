@@ -1,5 +1,5 @@
 <template>
-    <el-form ref="form" 
+    <el-form ref="form"
         :rules="rules"
         :model="form"
         @submit.native.prevent
@@ -24,7 +24,7 @@
             <captcha :change="onCaptchaChange" icon="bs-icon-captcha"></captcha>
         </el-form-item>
         <el-form-item>
-            <loading-button 
+            <loading-button
                 :click="submit"
                 label="登录"
                 labelOnLoading="正在登录"
@@ -39,53 +39,53 @@
 </template>
 
 <script>
-import IOT from 'IOT'
-import captcha from './captcha.vue'
-import loadingButton from '../common/loading_button.vue'
+import IOT from 'IOT';
+import captcha from './captcha.vue';
+import loadingButton from '../common/loading_button.vue';
 
 export default {
-    components: {
-        captcha,
-        'loading-button': loadingButton
+  components: {
+    captcha,
+    'loading-button': loadingButton
+  },
+  data() {
+    return {
+      form: {
+        loginName: '',
+        password: '',
+        captcha: '',
+      },
+      isSubmitting: false,
+      rules: {
+        loginName: [
+          { required: true, message: '请输入登录名', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
+        ],
+        captcha: [
+          { required: true, message: '请输入验证码', trigger: 'blur' }
+        ],
+      }
+    };
+  },
+  methods: {
+    onCaptchaChange(captcha) {
+      this.form.captcha = captcha;
     },
-    data(){
-        return {
-            form:{
-                loginName: '',
-                password: '',
-                captcha: '',
-            },
-            isSubmitting: false,
-            rules: {
-                loginName: [
-                    {required:true, message:'请输入登录名', trigger:'blur'}
-                ],
-                password: [
-                    {required:true, message:'请输入密码', trigger:'blur'}
-                ],
-                captcha: [
-                    {required:true, message:'请输入验证码', trigger:'blur'}
-                ],
-            }
-        };
-    },
-    methods: {
-        onCaptchaChange(captcha){
-            this.form.captcha = captcha;
-        },
-        submit(){
-            let thiz = this;
-            thiz.$refs.form.validate(async valid=>{
-                if(valid){
-                    thiz.isSubmitting = true;
-                    let ret = await IOT.postServerData('/login', Object.assign({}, thiz.form));
-                    thiz.isSubmitting = false;
-                    IOT.log(ret);
-                }
-            });
+    submit() {
+      const thiz = this;
+      thiz.$refs.form.validate(async (valid) => {
+        if (valid) {
+          thiz.isSubmitting = true;
+          const ret = await IOT.postServerData('/login', Object.assign({}, thiz.form));
+          thiz.isSubmitting = false;
+          IOT.log(ret);
         }
+      });
     }
-}
+  }
+};
 </script>
 
 <style lang="scss" module>

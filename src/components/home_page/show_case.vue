@@ -9,6 +9,7 @@
 
 <script>
 import CaseList from '../show_case_page/case_list.vue';
+
 export default {
   components: {
     'case-list': CaseList,

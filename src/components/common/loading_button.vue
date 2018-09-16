@@ -1,5 +1,5 @@
 <template>
-    <el-button :type="type" 
+    <el-button :type="type"
         :class="[!loading ? $style['btn'] : $style['btn-loading']]"
         :disabled="loading"
         :loading="loading"
@@ -10,20 +10,20 @@
 
 <script>
 export default {
-    props: {
-        type: {type:String, default:'primary'},
-        label: {type:String, required:true},
-        labelOnLoading: {type:String, required:true},
-        loading: {type:Boolean, required:true},
-        click: {type:Function}
-    },
-    data(){
-        return {}
-    },
-    methods: {
+  props: {
+    type: { type: String, default: 'primary' },
+    label: { type: String, required: true },
+    labelOnLoading: { type: String, required: true },
+    loading: { type: Boolean, required: true },
+    click: { type: Function }
+  },
+  data() {
+    return {};
+  },
+  methods: {
 
-    }
-}
+  }
+};
 </script>
 
 <style lang="scss" module>
@@ -38,5 +38,3 @@ export default {
         text-indent: 0;
     }
 </style>
-
-

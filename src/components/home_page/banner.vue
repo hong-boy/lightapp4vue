@@ -10,71 +10,70 @@
 </template>
 
 <script>
-import IOT from 'IOT'
+import IOT from 'IOT';
 
 export default {
-    mounted(){
-        // 绘制banner
-        this.drawCanvas();
-        this.$nextTick(function(){
-            let pw = new IOT.ParticleWave();
-            pw.run();
-        });
+  mounted() {
+    // 绘制banner
+    this.drawCanvas();
+    this.$nextTick(() => {
+      const pw = new IOT.ParticleWave();
+      pw.run();
+    });
+  },
+  methods: {
+    drawCanvas() {
+      const thiz = this;
+      thiz.$canvas = thiz.$el.querySelector('#canvas');
+      thiz.setCanvasSize();
+      thiz.ctx = thiz.$canvas.getContext('2d');
+      // 绘制背景
+      thiz.drawBackground();
     },
-    methods: {
-        drawCanvas(){
-            let thiz = this;
-            let $el = thiz.$el;
-            let $canvas = thiz.$canvas = $el.querySelector('#canvas');
-            thiz.setCanvasSize();
-            let ctx = thiz.ctx = $canvas.getContext('2d');
-            // 绘制背景
-            thiz.drawBackground();
-        },
-        drawParticle(){
-            // 绘制粒子
-            let list = new Float32Array(3000*2);
-            for(let i = 0; i < list.length; i+=2){
-                list[i] = Math.random();
-                list[i+1] = Math.random();
-            }
-        },
-        dragWaterGradient(width, height){
-            // 绘制波浪背景
-            let gradient = this.ctx.createLinearGradient(width/2, height/2, width/2, height);
-            // gradient.addColorStop(0, 'rgba(0, 0, 30, 0)');
-            // gradient.addColorStop(1, 'rgba(30, 0, 60, 0.5)');
-            gradient.addColorStop(0, 'red');
-            gradient.addColorStop(1, 'yellow');
-            return gradient;
-        },
-        drawLinearGradient(width, height){
-            // 绘制背景线性渐变效果
-            let gradient = this.ctx.createLinearGradient(width/2, 0, width/2, height);
-            // gradient.addColorStop(0, '#162e3b');
-            gradient.addColorStop(0, '#000');
-            gradient.addColorStop(1, '#000');
-            // gradient.addColorStop(1, '#00b8ff');
-            return gradient;
-        },
-        drawBackground(){
-            // 绘制背景
-            let ctx = this.ctx;
-            let width =this.$canvas.width, height = this.$canvas.height;
-            ctx.fillStyle = this.drawLinearGradient(width, height);
-            ctx.fillRect(0,0, width, height);
-            // ctx.fillStyle = this.dragWaterGradient(width, height);
-            // ctx.fillRect(0, height / 2, width, height / 2);
-
-        },
-        setCanvasSize(){
-            // 设置画布大小
-            let computedStyle = window.getComputedStyle(this.$el);
-            this.$canvas.setAttribute('height', computedStyle.height);
-            this.$canvas.setAttribute('width', computedStyle.width);
-        }
+    drawParticle() {
+      // 绘制粒子
+      const list = new Float32Array(3000 * 2);
+      for (let i = 0; i < list.length; i += 2) {
+        list[i] = Math.random();
+        list[i + 1] = Math.random();
+      }
     },
-}
+    dragWaterGradient(width, height) {
+      // 绘制波浪背景
+      const gradient = this.ctx.createLinearGradient(width / 2, height / 2, width / 2, height);
+      // gradient.addColorStop(0, 'rgba(0, 0, 30, 0)');
+      // gradient.addColorStop(1, 'rgba(30, 0, 60, 0.5)');
+      gradient.addColorStop(0, 'red');
+      gradient.addColorStop(1, 'yellow');
+      return gradient;
+    },
+    drawLinearGradient(width, height) {
+      // 绘制背景线性渐变效果
+      const gradient = this.ctx.createLinearGradient(width / 2, 0, width / 2, height);
+      // gradient.addColorStop(0, '#162e3b');
+      gradient.addColorStop(0, '#000');
+      gradient.addColorStop(1, '#000');
+      // gradient.addColorStop(1, '#00b8ff');
+      return gradient;
+    },
+    drawBackground() {
+      // 绘制背景
+      const ctx = this.ctx;
+      const width = this.$canvas.width; const
+        height = this.$canvas.height;
+      ctx.fillStyle = this.drawLinearGradient(width, height);
+      ctx.fillRect(0, 0, width, height);
+      // ctx.fillStyle = this.dragWaterGradient(width, height);
+      // ctx.fillRect(0, height / 2, width, height / 2);
+    },
+    setCanvasSize() {
+      // 设置画布大小
+      const computedStyle = window.getComputedStyle(this.$el);
+      this.$canvas.setAttribute('height', computedStyle.height);
+      this.$canvas.setAttribute('width', computedStyle.width);
+    }
+  },
+};
 </script>
 
 
@@ -118,4 +117,3 @@ export default {
       animation-delay: 1s;
     }
 </style>
-

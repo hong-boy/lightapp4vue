@@ -106,8 +106,8 @@
 </template>
 
 <script>
-import HeaderBar from '@components/common/header_bar/header_bar.vue'
-import FooterBar from '@components/common/footer_bar/footer_bar.vue'
+import HeaderBar from '@components/common/header_bar/header_bar.vue';
+import FooterBar from '@components/common/footer_bar/footer_bar.vue';
 
 export default {
   components: {

@@ -18,44 +18,44 @@
 </template>
 
 <script>
-  import HeaderBar from '@components/common/header_bar/header_bar.vue'
-  import FooterBar from '@components/common/footer_bar/footer_bar.vue'
-  import CaseList from './case_list.vue';
+import HeaderBar from "@components/common/header_bar/header_bar.vue";
+import FooterBar from "@components/common/footer_bar/footer_bar.vue";
+import CaseList from "./case_list.vue";
 
-  export default {
-    components: {
-    'header-bar': HeaderBar,
-    'footer-bar': FooterBar,
-    'case-list': CaseList,
-    }
+export default {
+  components: {
+    "header-bar": HeaderBar,
+    "footer-bar": FooterBar,
+    "case-list": CaseList
   }
+};
 </script>
 
 <style lang="scss" module>
-  @import '@common-vars';
-  .show-case-page {
-    position: relative;
-    height: 100%;
+@import "@common-vars";
+.show-case-page {
+  position: relative;
+  height: 100%;
+}
+.main {
+  &:global(.el-main) {
+    padding: 0;
+    overflow: visible;
+    background: #fff;
+    margin-top: $height-header-bar;
+    z-index: 1;
   }
-  .main {
-    &:global(.el-main) {
-      padding: 0;
-      overflow: visible;
-      background:#fff;
-      margin-top: $height-header-bar;
-      z-index: 1;
-    }
-  }
-  .wrap {
-    margin: 60px auto 120px auto;
-    text-align: center;
-  }
-  .caption {
-    font-size: 24px;
-    margin-bottom: 25px;
-  }
-  .sub-caption {
-    font-size: 14px;
-    color: $primary-font-color;
-  }
+}
+.wrap {
+  margin: 60px auto 120px auto;
+  text-align: center;
+}
+.caption {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+.sub-caption {
+  font-size: 14px;
+  color: $primary-font-color;
+}
 </style>

@@ -1,10 +1,10 @@
 <template>
-    <el-container id="container" 
+    <el-container id="container"
         direction="vertical"
         :class="['page', $style['login-page']]">
         <header-bar :isOnlyShowLogo="true"
             backgroundColor="transparent"></header-bar>
-        <el-main :class="[$style['main']]" 
+        <el-main :class="[$style['main']]"
             tabindex="-1"
             @mousemove.native="mousemove">
             <login-form class="animated zoomInDown"></login-form>
@@ -14,38 +14,38 @@
 </template>
 
 <script>
-import {debounce} from 'lodash'
-import LoginForm from './login_form.vue'
-import HeaderBar from '@components/common/header_bar/header_bar.vue'
-import FooterBar from '@components/common/footer_bar/footer_bar.vue'
+// import { debounce } from 'lodash';
+import HeaderBar from '@components/common/header_bar/header_bar.vue';
+import FooterBar from '@components/common/footer_bar/footer_bar.vue';
+import LoginForm from './login_form.vue';
 
 export default {
-    components: {
-        LoginForm,
-        HeaderBar,
-        FooterBar,
-    },
-    data(){
-        return {
-            $container: null,
-            windowOuterHeight: null,
-            windowOuterWidth: null,
-        };
-    },
-    mounted(){
-        this.$container = document.querySelector('#container');
-        this.windowOuterHeight = window.outerHeight;
-        this.windowOuterWidth = window.outerWidth;
-    },
-    methods:{
-        mousemove: function(e){
-            let y = e.pageY/this.windowOuterHeight*100;
-            let x = e.pageX/this.windowOuterWidth*100;
-            this.$container.style.backgroundPositionY = `${Math.max(45, Math.min(65, y))}%`;
-            this.$container.style.backgroundPositionX = `${Math.max(45, Math.min(65, x))}%`;
-        }
+  components: {
+    LoginForm,
+    HeaderBar,
+    FooterBar,
+  },
+  data() {
+    return {
+      $container: null,
+      windowOuterHeight: null,
+      windowOuterWidth: null,
+    };
+  },
+  mounted() {
+    this.$container = document.querySelector('#container');
+    this.windowOuterHeight = window.outerHeight;
+    this.windowOuterWidth = window.outerWidth;
+  },
+  methods: {
+    mousemove(e) {
+      const y = e.pageY / this.windowOuterHeight * 100;
+      const x = e.pageX / this.windowOuterWidth * 100;
+      this.$container.style.backgroundPositionY = `${Math.max(45, Math.min(65, y))}%`;
+      this.$container.style.backgroundPositionX = `${Math.max(45, Math.min(65, x))}%`;
     }
-}
+  }
+};
 </script>
 
 <style lang="scss" module>

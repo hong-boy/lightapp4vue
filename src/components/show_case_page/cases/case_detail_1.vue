@@ -62,8 +62,8 @@
 </template>
 
 <script>
-import CaseShare from '../case_share.vue'
-import CaseList from '../case_list.vue'
+import CaseShare from '../case_share.vue';
+import CaseList from '../case_list.vue';
 
 export default {
   components: {

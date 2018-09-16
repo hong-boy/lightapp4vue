@@ -10,30 +10,30 @@
 
 <script>
 export default {
-  beforeCreate(){
+  beforeCreate() {
     window._bd_share_main = null;
-  },  
+  },
   created() {
-    let thiz = this;
+    const thiz = this;
     thiz.setupBaiduShare();
   },
   methods: {
-    setupBaiduShare(){
+    setupBaiduShare() {
       window._bd_share_config = {
-        "common": {
-            "bdSnsKey": {},
-            "bdMini": "2",
-            "bdStyle": "0",
-            "bdSize": "16",
-            "bdMiniList":["weixin","sqq","tsina","fbook","qzone","renren","tqq","isohu","ty"],
-            "bdText": "BaaS-中国移动物联网轻应用平台",
-            "bdDesc" : 'BaaS-中国移动物联网轻应用平台是由中国移动打造的物联网轻应用开放平台。平台能够帮助开发者快速地开发出基于OneNET的物联网web应用。',
-            "bdUrl" : "https://demo.heclouds.com/baas/index",
+        common: {
+          bdSnsKey: {},
+          bdMini: "2",
+          bdStyle: "0",
+          bdSize: "16",
+          bdMiniList: ["weixin", "sqq", "tsina", "fbook", "qzone", "renren", "tqq", "isohu", "ty"],
+          bdText: "BaaS-中国移动物联网轻应用平台",
+          bdDesc: 'BaaS-中国移动物联网轻应用平台是由中国移动打造的物联网轻应用开放平台。平台能够帮助开发者快速地开发出基于OneNET的物联网web应用。',
+          bdUrl: "https://demo.heclouds.com/baas/index",
         },
-        "share": {}
+        share: {}
       };
-      let script = document.createElement('script');
-      script.src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5);
+      const script = document.createElement('script');
+      script.src = `http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=${~(-new Date() / 36e5)}`;
       document.querySelector('head').appendChild(script);
     }
   }

@@ -1,7 +1,7 @@
 <template>
     <el-container :class="[$style['main-page'], 'page']"
         direction="vertical">
-        <header-bar 
+        <header-bar
             :isFixed="true"
             :scroll="onscroll"
             :backgroundColor="headerbar.backgroundColor"></header-bar>
@@ -20,63 +20,63 @@
 </template>
 
 <script>
-import HeaderBar from '@components/common/header_bar/header_bar.vue'
-import FooterBar from '@components/common/footer_bar/footer_bar.vue'
-import Banner from './banner.vue'
-import Summary from './summary.vue'
-import VideoTutorial from './video_tutorial.vue'
+import HeaderBar from '@components/common/header_bar/header_bar.vue';
+import FooterBar from '@components/common/footer_bar/footer_bar.vue';
+import IOT from 'IOT';
+import Banner from './banner.vue';
+import Summary from './summary.vue';
+import VideoTutorial from './video_tutorial.vue';
 import AppAbility from './app_ability.vue';
 import Cooperation from './cooperation.vue';
 import ShowCase from './show_case.vue';
-import IOT from 'IOT'
 
 export default {
-    components: {
-        'header-bar': HeaderBar,
-        'footer-bar': FooterBar,
-        banner: Banner,
-        'summary-compt': Summary,
-        'video-tutorial': VideoTutorial,
-        'app-ability': AppAbility,
-        'cooperation': Cooperation,
-        'show-case': ShowCase,
+  components: {
+    'header-bar': HeaderBar,
+    'footer-bar': FooterBar,
+    banner: Banner,
+    'summary-compt': Summary,
+    'video-tutorial': VideoTutorial,
+    'app-ability': AppAbility,
+    cooperation: Cooperation,
+    'show-case': ShowCase,
+  },
+  data() {
+    return {
+      headerbar: {
+        // backgroundColor: '#162e3b'
+        backgroundColor: '#000'
+      },
+      gradientColorArr: [],
+      bannerHeight: null,
+      bannerRange: null,
+    };
+  },
+  created() {
+    const thiz = this;
+    window.onresize = function () {
+      thiz.getBannerHeight();
+    };
+  },
+  destroyed() {
+    window.onresize = null;
+  },
+  mounted() {
+    this.getBannerHeight();
+  },
+  methods: {
+    onscroll($headerbar, top) {
+      // 颜色过渡效果
+      const index = parseInt(top / 100);
+      this.headerbar.backgroundColor = this.gradientColorArr[index];
     },
-    data(){
-        return {
-            headerbar: {
-                // backgroundColor: '#162e3b'
-                backgroundColor: '#000'
-            },
-            gradientColorArr: [],
-            bannerHeight: null,
-            bannerRange: null,
-        };
-    },
-    created(){
-        let thiz = this;
-        window.onresize = function(){
-            thiz.getBannerHeight();
-        };
-    },
-    destroyed(){
-        window.onresize = null;
-    },
-    mounted(){
-        this.getBannerHeight();
-    },
-    methods: {
-        onscroll($headerbar, top){
-            // 颜色过渡效果
-            let index = parseInt(top/100);
-            this.headerbar.backgroundColor = this.gradientColorArr[index];
-        },
-        getBannerHeight(){
-            this.bannerHeight = parseFloat(window.getComputedStyle(this.$refs.banner.$el).height);
-            this.bannerRange = this.bannerHeight;
-            this.gradientColorArr = IOT.GradientColorUtil.transform('#000000', '#00b8ff', parseInt(this.bannerRange / 100));
-        }
-    },
-}
+    getBannerHeight() {
+      this.bannerHeight = parseFloat(window.getComputedStyle(this.$refs.banner.$el).height);
+      this.bannerRange = this.bannerHeight;
+      this.gradientColorArr = IOT.GradientColorUtil.transform('#000000', '#00b8ff', parseInt(this.bannerRange / 100));
+    }
+  },
+};
 </script>
 
 
@@ -95,4 +95,3 @@ export default {
         }
     }
 </style>
-

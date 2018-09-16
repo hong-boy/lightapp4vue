@@ -5,9 +5,9 @@
             :prefix-icon="icon"
             maxlength="6"
             :class="[$style['captcha']]"></el-input>
-        <img src="###" 
-            alt="图形验证码" 
-            title="点击刷新" 
+        <img src="###"
+            alt="图形验证码"
+            title="点击刷新"
             :class="$style['img']"
             @click="refresh"/>
     </div>
@@ -15,26 +15,26 @@
 
 <script>
 export default {
-    props: {
-        change: {type:Function, required:true},
-        icon: {type:String, default:''}
-    },
-    data(){
-        return {
-            captcha: ''
-        };
-    },
-    methods: {
-        refresh(){
+  props: {
+    change: { type: Function, required: true },
+    icon: { type: String, default: '' }
+  },
+  data() {
+    return {
+      captcha: ''
+    };
+  },
+  methods: {
+    refresh() {
 
-        }
-    },
-    watch:{
-        captcha(...args){
-            this.change(this.captcha);
-        }
     }
-}
+  },
+  watch: {
+    captcha(...args) {
+      this.change(this.captcha);
+    }
+  }
+};
 </script>
 
 <style lang="scss" module>
@@ -50,5 +50,3 @@ export default {
         float: right;
     }
 </style>
-
-
