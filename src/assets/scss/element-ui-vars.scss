@@ -1,0 +1,30 @@
+
+@import "@common-vars";
+
+/* 改变主题色变量 */
+$--color-primary: $primary-color;
+
+// 表单文本框高度
+$--input-height: 35px;
+
+// 按钮内边距
+$--button-padding-vertical: 9px;
+
+// 菜单字体
+$--menu-item-font-size: 16px;
+
+// 菜单字体颜色
+$--menu-item-color: #FFF;
+
+// 菜单hover|foucs背景色
+$--menu-item-hover-fill: transparent;
+
+// $--color-text-primary: #666;
+// $--color-text-regular: #666;
+// $--color-text-secondary: #999;
+// $--color-text-placeholder: #999;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";

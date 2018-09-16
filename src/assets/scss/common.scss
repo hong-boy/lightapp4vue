@@ -1,0 +1,23 @@
+@import '@common-vars';
+@import './element-ui-vars.scss';
+@import '../fontello/css/fontello.css';
+
+:global {
+    .page {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        min-width: $min-width;
+    }
+    .link {
+        text-decoration: none;
+        color: $primary-color;
+        cursor: pointer;
+    }
+    .el-form-item {
+        // margin-bottom: 15px;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+    }
+}

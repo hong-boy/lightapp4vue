@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "quotes": 0,
+    "comma-dangle": 0,
+    "linebreak-style": ["warn", "windows"],
+    "global-require": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-var": 0,
+    "func-names": 0
+  }
+}
