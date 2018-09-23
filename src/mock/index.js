@@ -1,1 +1,5 @@
-import './login_page.mock.js';
+const loginMockData = require("./login_page.mock.js");
+
+module.exports = {
+  ...loginMockData
+};

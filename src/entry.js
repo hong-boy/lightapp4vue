@@ -6,11 +6,8 @@ import "./assets/scss/common.scss";
 import Layout from "./Layout";
 import "animate.css";
 
-if (process.env.NODE_ENV === "development") {
-  require("./mock/index");
-}
 
-/* eslint-disable */
+// eslint-disable-next-line
 new Vue({
   el: "#layout",
   router,

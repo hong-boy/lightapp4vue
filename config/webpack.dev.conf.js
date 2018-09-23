@@ -1,5 +1,6 @@
 const path = require("path");
 const merge = require("webpack-merge");
+const mocker = require("webpack-api-mocker");
 
 const rootdir = path.join(__dirname, "../");
 const webpackBaseConfig = require("./webpack.base.conf");
@@ -11,6 +12,13 @@ module.exports = merge(webpackBaseConfig, {
     contentBase: path.join(rootdir, "dist/"),
     compress: false,
     historyApiFallback: true,
-    port: 3001
+    port: 3001,
+    before(app) {
+      // 模拟数据
+      mocker(
+        app,
+        path.join(rootdir, "src/mock/index.js"),
+      );
+    }
   }
 });
